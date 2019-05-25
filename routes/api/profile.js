@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator/check');
+const request = require('request');
+const config = require('config');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
@@ -325,6 +327,36 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
     await profile.save();
 
     res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route   GET api/profile/github/:username
+// @desc    Get user repo from Github
+// @access   Public
+// THIS BIT DOES NOT WORK DOESN'T return Git data -> not important I'll come back to this
+router.get('/github/:username', (req, res) => {
+  try {
+    const options = {
+      uri: `https://api.github.com/user/${
+        req.params.username
+      }/repos?per_page5&sort=created:asc&cleint_id=${config.get(
+        'githubClientId'
+      )}&client_secret=${config.get('githubSecret')}`,
+      method: 'GET',
+      headers: { 'user-agent': 'node.js' }
+    };
+
+    request(options, (error, response, body) => {
+      if (error) console.error(error);
+
+      if(response.statusCode !==200) {
+        return res.status(404).json({ msg: 'No Github profile found'});
+      }
+      res.json(JSON.parse(body));
+    });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Server Error');
