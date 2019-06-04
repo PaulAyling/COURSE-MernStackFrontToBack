@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { addEducation} from '../../actions/profile';
+import { addEducation } from '../../actions/profile';
 
 const AddEducation = ({ addEducation, history }) => {
   const [formData, setFormData] = useState({
@@ -17,16 +17,25 @@ const AddEducation = ({ addEducation, history }) => {
 
   const [toDateDisabled, toggleDisabled] = useState(false);
 
-  const { school, degree, fieldofstudy, from, to, current, description } = formData;
+  const {
+    school,
+    degree,
+    fieldofstudy,
+    from,
+    to,
+    current,
+    description
+  } = formData;
 
   const onChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   return (
     <Fragment>
-      <h1 class='large text-primary'>Add AYour Education</h1>
+      <h1 class='large text-primary'>Add Your Education</h1>
       <p class='lead'>
-        <i class='fas fa-code-branch' /> Add any School or bootcamp you have attended
+        <i class='fas fa-code-branch' /> Add any School or bootcamp you have
+        attended
       </p>
       <small>* = required field</small>
       <form
@@ -86,7 +95,7 @@ const AddEducation = ({ addEducation, history }) => {
                 //
               }}
             />{' '}
-            Current Job
+            Current School
           </p>
         </div>
         <div class='form-group'>
@@ -119,11 +128,11 @@ const AddEducation = ({ addEducation, history }) => {
 };
 
 AddEducation.propTypes = {
-    addEducation:PropTypes.func.isRequired
+  addEducation: PropTypes.func.isRequired
 };
 
 export default connect(
   null,
-  { addEducation}
-)(AddEducation);
+  { addEducation }
+)(withRouter(AddEducation));
 //
