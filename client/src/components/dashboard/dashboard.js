@@ -49,21 +49,20 @@ const Dashboard = ({
     </Fragment>
   );
 };
-//
 Dashboard.propTypes = {
   getCurrentProfile: PropTypes.func.isRequired,
+  deleteAccount: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  getCurrentProfile: PropTypes.func.isRequired,
-  deleteAccount: PropTypes.func.isRequired,
   auth: state.auth,
   profile: state.profile
 });
-//
+
 export default connect(
   mapStateToProps,
   { getCurrentProfile, deleteAccount }
 )(Dashboard);
+

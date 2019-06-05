@@ -19,7 +19,7 @@ const Education = ({ education, deleteEducation }) => {
       </td>
       <td>
         <button
-          onClick={() => deleteEducation(edu.id)}
+          onClick={() => deleteEducation(edu._id)}
           className='btn btn-danger'
         >
           Delete
@@ -34,14 +34,13 @@ const Education = ({ education, deleteEducation }) => {
         <thead>
           <tr>
             <th>School</th>
-            <th className='hide-sm'>Title</th>
+            <th className='hide-sm'>Degree</th>
             <th className='hide-sm'>Years</th>
             <th />
           </tr>
         </thead>
         <tbody>{educations}</tbody>
       </table>
-      {console.log(educations)}
     </Fragment>
   );
 };
@@ -55,4 +54,3 @@ export default connect(
   null,
   { deleteEducation }
 )(Education);
-//
