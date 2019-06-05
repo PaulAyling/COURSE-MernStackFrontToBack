@@ -76,7 +76,7 @@ const Profile = ({
 
           </div>
           {profile.githubusername && (
-            <profileGithub username={profile.githubusername}/>
+            <ProfileGithub username={profile.githubusername}/>
           )}
         </Fragment>
       )}
@@ -84,7 +84,7 @@ const Profile = ({
     </Fragment>
   );
 };
-//
+
 Profile.propTypes = {
   getProfileById: PropTypes.func.isRequired,
   profile: PropTypes.object.isRequired,

@@ -1,4 +1,7 @@
 // PAUL AYLING
+//  TASKS   - GITHUB REPOSITORY IS NOT WORKING - THINK ITS DUE TO THE PROXY
+// VM4901:1 GET http://localhost:3000/api/profile/github/https://github.com/PaulAyling
+// THE SAME COMMAND WORKS FOR 5000 in POSTMAN on 5000
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
@@ -14,6 +17,7 @@ import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import AddEducation from './components/profile-forms/AddEducation';
 import PrivateRoute from './components/routing/PrivateRoute';
+import Posts from './components/posts/posts';
 
 //redux
 import { Provider } from 'react-redux';
@@ -65,6 +69,7 @@ const App = () => {
                 path='/add-education'
                 component={AddEducation}
               />
+              <PrivateRoute exact path='/posts' component={Posts} />
             </Switch>
           </section>
         </Fragment>

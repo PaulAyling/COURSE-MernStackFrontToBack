@@ -342,7 +342,7 @@ router.delete('/education/:edu_id', auth, async (req, res) => {
 router.get('/github/:username', (req, res) => {
   try {
     const options = {
-      uri: `https://api.github.com/user/${
+      uri: `https://api.github.com/users/${
         req.params.username
       }/repos?per_page5&sort=created:asc&cleint_id=${config.get(
         'githubClientId'
