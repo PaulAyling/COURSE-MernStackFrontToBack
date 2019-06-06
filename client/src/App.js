@@ -17,7 +17,7 @@ import Profiles from './components/profiles/Profiles';
 import Profile from './components/profile/Profile';
 import AddEducation from './components/profile-forms/AddEducation';
 import PrivateRoute from './components/routing/PrivateRoute';
-import Posts from './components/posts/posts';
+import Posts from './components/posts/Posts';
 
 //redux
 import { Provider } from 'react-redux';
