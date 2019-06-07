@@ -1,4 +1,4 @@
-# udemy-MERN
+# udemy-MERN STACK FRONT TO BACK  {NODE, MONGO, REDUX, EXPRESS, REACT}
 Training course from udemy
 
 Build and deploy a social network with Node.js, Express, React, Redux & MongoDB. Fully updated April 2019
